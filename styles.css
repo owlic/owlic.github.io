@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+}
+
+button#start {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+button#restart {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.board {
+  width: 150px;
+  height: 150px;
+  display: grid;
+  margin-left: 30px;
+  margin-top: 20px;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+/* 改變游標的形狀(手指) */
+}
+
+.cell:nth-of-type(n+4) {      /* 井字格內部邊線會重覆畫兩次，消除第4格以後的上邊線 */
+  border-top: none;
+}
+
+.cell:nth-of-type(3n+2) {     /* 消除第2,5,8格的左右邊線 */
+  border-left: none;
+  border-right: none;
+}
+
+.cell.o::before,
+.cell.o::after,
+.board.o .cell:not(.o):not(.x):hover::before,
+.board.o .cell:not(.o):not(.x):hover::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+.cell.o::before,
+.board.o .cell:not(.o):not(.x):hover::before {
+  width: 14px;
+  height: 14px;
+  background-color: black;
+}
+.cell.o::after,
+.board.o .cell:not(.o):not(.x):hover::after {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+}
+
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.o):not(.x):hover::before,   /* 非在圈圈或叉叉狀態下，當游標懸停時 */
+.board.x .cell:not(.o):not(.x):hover::after {   
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background-color: black;
+}
+.cell.x::before,        /* before 在原本的元素之前加入內容 */
+.board.x .cell:not(.o):not(.x):hover::before {
+  transform: rotate(45deg);
+}
+.cell.x::after,         /* after 在原本的元素之後加入內容 */
+.board.x .cell:not(.o):not(.x):hover::after {
+  transform: rotate(-45deg);
+}
+
+#playerTurn,
+#counter1,
+#counter2,
+.player {
+  margin-top: 20px;
+  margin-left: 25px;
+}
+
+

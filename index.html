@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />                    <!-- 設置IE兼容模式 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />   <!-- 讓手持裝置排版不會跑掉 -->
+    <link rel="stylesheet" href="styles.css" />   <!-- 載入外部CSS樣式表，我的在styles.css -->
+    <script src="script.js" defer></script>   <!-- 瀏覽器會繼續解析、渲染畫面，而不會因為需要載入 <script> 內的資源而卡在那邊等 -->
+    <title>Tic Tac Toe</title>
+  </head>
+
+  <body>
+    <button id="start">開始</button>
+    <button id="restart">重置</button>
+
+    <div class="board" id="board">
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+    </div>
+
+    <div class="player">目前玩家：<span id="playerTurn"></span></div>
+    <div class="player">O：<span id="counter1"></span></div>
+    <div class="player">X：<span id="counter2"></span></div>
+
+  </body>
+</html>
+
